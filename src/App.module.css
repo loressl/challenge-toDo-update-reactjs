@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.container main {
+  max-width: 90rem;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: calc(0px - 1.5rem - 6px);
+  margin-bottom: 4rem;
+}
+
+.task button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem;
+  width: 5.625rem;
+  height: 3.25rem;
+  background: var(--blueDark);
+  border: 0;
+  border-radius: 8px;
+  color: var(--gray-100);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.task button[type=submit]:hover{
+  background: var(--blue);
+  transition: 0.3s;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.taskList header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--gray-400);
+  gap: 16px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%; 
+  }
+}
