@@ -61,6 +61,27 @@
   border-radius: 8px;
 }
 
+.contentEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:4rem 1.5rem;
+  width: 100%;
+  gap: 1rem;
+  color: var(--gray-300);
+}
+
+.contentEmpty > div {
+  color: var(--gray-300);
+  font-size: 1rem;
+  line-weight: 1.4;
+}
+
+.contentEmpty > div span {
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 87.5%; 

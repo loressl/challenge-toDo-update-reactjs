@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: var(--gray-500);
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+  height: 4.5rem;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  gap:12px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  outline: 0;
+}
+
+.checkboxContainer {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkboxContainer input[type="checkbox"] {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.checkboxContainer input[type="checkbox"]:checked ~ .checkmark {
+  background: var(--purpleDark);
+  border: 2px solid var(--purpleDark);
+}
+
+.checkboxContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkboxContainer input[type="checkbox"]:hover ~ .checkmark {
+  background: var(--blueDark);
+}
+
+.checkboxContainer input[type="checkbox"]:before {
+  content: "";
+}
+
+.checkboxContainer input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.checkboxContainer input[type="checkbox"]:checked:hover ~ .checkmark {
+  background: var(--purple);
+  color: var(--gray-100);
+  opacity: inherit;
+}
+
+.checkmark {
+  display: flex;
+  height: 24px;
+  width: 24px;
+  background: var(--gray-400);
+  border-radius: 999px;
+  border: 2px solid var(--blue);
+}
+
+.checkmark:after {
+  content: "\2713";
+  position: absolute;
+  display: none;
+  left: 6px;
+  width: 3px;
+  height: 3px;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-100);
+}
+
+.container button {
+  background: transparent;
+  border: 0;
+  color: var(--gray-300);
+  cursor: pointer;
+  line-height: 0;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.container button:hover {
+  color: var(--danger);
+  background: var(--gray-400);
+}
