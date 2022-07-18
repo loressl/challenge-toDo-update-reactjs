@@ -5,12 +5,12 @@ import { Input } from './components/Input'
 import { PlusCircle, } from 'phosphor-react'
 import './global.css'
 import { TaskList } from './components/TaskList'
-import {TaskListProps} from './utils/interfaces'
-import {v4 as uuidv4} from 'uuid'
+import { TaskProps } from './utils/interfaces'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
   const [newTask, setNewTask] = useState('')
-  const [taskList, setTaskList] = useState<TaskListProps[]>([])
+  const [taskList, setTaskList] = useState<TaskProps[]>([])
 
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault()
@@ -28,8 +28,22 @@ function App() {
     setNewTask(event.target.value)
   }
 
-  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>){
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
     event.target.setCustomValidity('Não pode salvar como um campo vazio!')
+  }
+
+  function handleToggeTaskCompletion(id: string) {
+    const updateArray = taskList.map((task) => {
+      if (task.id === id) task.isComplete = !task.isComplete
+      return task
+    })
+    setTaskList(updateArray)
+  }
+
+  function handleRemoveTask(id: string) {
+    const position = taskList.findIndex((task) => task.id === id)
+    let arrayTasks = [...taskList.slice(0, position), ...taskList.slice(position + 1)]
+    setTaskList(arrayTasks)
   }
 
   const isNewTask = newTask.length === 0
@@ -40,9 +54,9 @@ function App() {
       <div className={styles.container}>
         <main>
           <form onSubmit={handleCreateNewTask} className={styles.task}>
-            <Input 
+            <Input
               placeholder='Adicione uma nova tarefa'
-              value={newTask} 
+              value={newTask}
               onChange={handleNewTaskChange}
               onInvalid={handleNewTaskInvalid}
               required
@@ -52,7 +66,11 @@ function App() {
               <PlusCircle size={24} />
             </button>
           </form>
-          <TaskList taskList={taskList} />
+          <TaskList 
+            taskList={taskList} 
+            onToggleTask={handleToggeTaskCompletion} 
+            onRemoveTask={handleRemoveTask}
+          />
         </main>
       </div>
     </>

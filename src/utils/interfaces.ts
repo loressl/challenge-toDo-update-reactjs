@@ -1,4 +1,4 @@
-export interface TaskListProps {
+export interface TaskProps {
   id: string;
   title: string;
   isComplete: boolean;

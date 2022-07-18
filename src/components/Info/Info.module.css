@@ -20,8 +20,9 @@
 
 .counter {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    width: 1.563rem;
+    width: auto;
     header: 1.188rem;
     background: var(--gray-400);
     border-radius: 999px;
@@ -29,4 +30,5 @@
     font-weight: 700;
     line-height: 15px;
     color: var(--gray-200);
+    padding: 0 0.5rem 0 0.5rem;
 }

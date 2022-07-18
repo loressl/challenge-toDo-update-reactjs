@@ -105,3 +105,10 @@
   color: var(--danger);
   background: var(--gray-400);
 }
+
+.completed {
+  text-decoration: line-through;
+  color: var(--gray-300);
+  font-size: 14px;
+  font-weight: 400;
+}
